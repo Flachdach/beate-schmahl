@@ -1,69 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Externe Abrechnung für Zahnarztpraxen | Beate Schmahl</title>
-<meta name="description" content="Externe Abrechnung für Zahnarztpraxen. BEMA, GOZ, KFO, Vertretung und Abrechnungsoptimierung. Persönlich betreut von Beate Schmahl.">
-<style>
-body{font-family:Arial,sans-serif;margin:0;color:#222;line-height:1.6}
-.hero{background:#f4f7fa;padding:80px 20px;text-align:center}
-.container{max-width:1100px;margin:auto;padding:60px 20px}
-h1{font-size:48px;margin-bottom:10px}
-h2{font-size:34px;margin-bottom:20px}
-.btn{display:inline-block;background:#1f4b7a;color:#fff;padding:14px 28px;text-decoration:none;border-radius:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{border:1px solid #ddd;padding:20px;border-radius:8px}
-.alt{background:#f8f8f8}
-footer{background:#1f2937;color:white;padding:40px 20px;text-align:center}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIDENTA | Externe Abrechnung für Zahnarztpraxen</title>
+  <meta name="description" content="VIDENTA unterstützt Zahnarztpraxen bei externer Abrechnung, BEMA, GOZ, KFO, Urlaubsvertretung, Krankheitsvertretung und Praxisentlastung. Persönlich betreut von Beate Schmahl und Martina Mustermann aus Krefeld.">
+  <style>
+    :root{
+      --bg:#f7f4ef;
+      --paper:#ffffff;
+      --ink:#172322;
+      --muted:#5f6d69;
+      --petrol:#0f4c4f;
+      --petrol2:#123d42;
+      --sand:#d9c7a3;
+      --line:#e7dfd2;
+      --soft:#eef4f2;
+      --radius:24px;
+      --shadow:0 24px 70px rgba(20,35,34,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:1180px;margin:auto;padding:0 24px}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(247,244,239,.86);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(231,223,210,.8);
+    }
+    .nav{
+      height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{font-weight:800;letter-spacing:.12em;font-size:20px;color:var(--petrol)}
+    .navlinks{display:flex;gap:22px;font-size:15px;color:var(--muted)}
+    .navlinks a{text-decoration:none}
+    .navlinks a:hover{color:var(--petrol)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 22px;border-radius:999px;
+      background:var(--petrol);color:#fff;text-decoration:none;font-weight:700;
+      box-shadow:0 14px 30px rgba(15,76,79,.22);
+    }
+    .btn.secondary{
+      background:#fff;color:var(--petrol);border:1px solid var(--line);box-shadow:none;
+    }
+    .hero{padding:88px 0 70px;position:relative;overflow:hidden}
+    .hero:before{
+      content:"";position:absolute;right:-220px;top:-180px;width:620px;height:620px;border-radius:50%;
+      background:radial-gradient(circle,rgba(217,199,163,.65),rgba(217,199,163,0) 65%);
+      pointer-events:none;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative}
+    .eyebrow{
+      display:inline-flex;gap:8px;align-items:center;
+      color:var(--petrol);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+      background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 13px;
+    }
+    h1{
+      font-size:clamp(44px,6vw,78px);
+      line-height:.98;margin:22px 0 22px;letter-spacing:-.055em;
+    }
+    .lead{font-size:clamp(19px,2vw,24px);color:var(--muted);max-width:680px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:34px;color:var(--muted);font-size:15px}
+    .trust span{background:rgba(255,255,255,.7);border:1px solid var(--line);padding:9px 12px;border-radius:999px}
+    .visual{
+      background:linear-gradient(145deg,#fff,var(--soft));
+      border:1px solid var(--line);border-radius:34px;padding:24px;box-shadow:var(--shadow);
+    }
+    .portrait-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .portrait{
+      min-height:320px;border-radius:26px;background:
+      linear-gradient(180deg,rgba(15,76,79,.12),rgba(217,199,163,.20)),
+      #fff;border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;justify-content:flex-end;
+      position:relative;overflow:hidden;
+    }
+    .portrait:before{
+      content:"";position:absolute;left:50%;top:50px;transform:translateX(-50%);
+      width:120px;height:120px;border-radius:50%;background:rgba(15,76,79,.14);
+      box-shadow:0 140px 0 58px rgba(15,76,79,.09);
+    }
+    .portrait h3,.portrait p{position:relative;margin:0}
+    .portrait h3{font-size:22px}
+    .portrait p{color:var(--muted);font-size:15px}
+    .note{margin-top:16px;color:var(--muted);font-size:14px}
+    section{padding:78px 0}
+    .section-head{max-width:760px;margin-bottom:34px}
+    .section-head h2{font-size:clamp(32px,4vw,52px);line-height:1.05;margin:0 0 16px;letter-spacing:-.04em}
+    .section-head p{font-size:19px;color:var(--muted);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+      padding:28px;box-shadow:0 12px 40px rgba(20,35,34,.05);
+    }
+    .card .icon{
+      width:44px;height:44px;border-radius:14px;background:var(--soft);
+      display:flex;align-items:center;justify-content:center;color:var(--petrol);font-weight:900;margin-bottom:18px;
+    }
+    .card h3{font-size:23px;margin:0 0 10px}
+    .card p{color:var(--muted);margin:0}
+    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+    .panel{
+      background:var(--petrol2);color:#fff;border-radius:34px;padding:38px;box-shadow:var(--shadow);
+      position:sticky;top:100px;
+    }
+    .panel h2{font-size:42px;line-height:1.05;margin:0 0 18px;letter-spacing:-.04em}
+    .panel p{color:rgba(255,255,255,.78);font-size:18px}
+    .list{display:grid;gap:14px}
+    .item{
+      background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px;
+      display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;
+    }
+    .check{color:var(--petrol);font-weight:900}
+    .item h3{margin:0 0 4px;font-size:20px}
+    .item p{margin:0;color:var(--muted)}
+    .wide{
+      background:#fff;border:1px solid var(--line);border-radius:34px;padding:42px;
+      display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;box-shadow:var(--shadow);
+    }
+    .quote{font-size:30px;line-height:1.2;letter-spacing:-.03em;margin:0}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fact{background:var(--soft);border-radius:18px;padding:18px}
+    .fact strong{display:block;font-size:24px;color:var(--petrol)}
+    .target{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .pillbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;font-weight:700;text-align:center}
+    .faq{display:grid;gap:12px}
+    details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+    summary{cursor:pointer;font-weight:800;font-size:18px}
+    details p{color:var(--muted);margin:12px 0 0}
+    .contact{
+      background:linear-gradient(145deg,var(--petrol2),var(--petrol));
+      color:white;border-radius:40px;padding:54px;display:grid;grid-template-columns:1fr .8fr;gap:34px;align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .contact h2{font-size:48px;line-height:1.03;margin:0 0 14px;letter-spacing:-.04em}
+    .contact p{color:rgba(255,255,255,.78);font-size:18px}
+    .contact-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:26px;padding:26px}
+    .contact-card a{display:block;color:white;text-decoration:none;margin:10px 0}
+    footer{padding:38px 0;color:var(--muted);font-size:14px}
+    @media(max-width:900px){
+      .hero-grid,.split,.wide,.contact{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .target{grid-template-columns:1fr 1fr}
+      .navlinks{display:none}
+      .panel{position:relative;top:auto}
+    }
+    @media(max-width:560px){
+      .wrap{padding:0 18px}
+      .hero{padding:54px 0}
+      section{padding:54px 0}
+      .cards,.portrait-row,.facts,.target{grid-template-columns:1fr}
+      h1{font-size:44px}
+      .contact,.wide,.panel{padding:28px;border-radius:26px}
+      .contact h2{font-size:36px}
+    }
+  </style>
 </head>
 <body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">VIDENTA</div>
+    <nav class="navlinks">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#team">Team</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn" href="#kontakt">Erstgespräch</a>
+  </div>
+</header>
 
-<section class="hero">
-<h1>Externe Abrechnung für Zahnarztpraxen</h1>
-<p>Mehr Zeit für Patienten. Weniger Aufwand für Ihr Team.</p>
-<p>BEMA • GOZ • KFO • Praxisunterstützung</p>
-<a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
-</section>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Externe Abrechnung für Zahnarztpraxen</span>
+        <h1>Mehr Sicherheit in der Abrechnung. Mehr Zeit für Ihre Praxis.</h1>
+        <p class="lead">VIDENTA unterstützt Zahnarztpraxen bei BEMA, GOZ, KFO und Praxisentlastung – persönlich betreut von Beate Schmahl und Martina Mustermann aus Krefeld.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#kontakt">Unverbindlich anfragen</a>
+          <a class="btn secondary" href="#leistungen">Leistungen ansehen</a>
+        </div>
+        <div class="trust">
+          <span>BEMA</span><span>GOZ</span><span>KFO</span><span>Urlaubsvertretung</span><span>Krankheitsvertretung</span>
+        </div>
+      </div>
+      <div class="visual" id="team">
+        <div class="portrait-row">
+          <div class="portrait">
+            <h3>Beate Schmahl</h3>
+            <p>Abrechnungsspezialistin für Zahnarztpraxen</p>
+          </div>
+          <div class="portrait">
+            <h3>Martina Mustermann</h3>
+            <p>Abrechnung & Praxisorganisation</p>
+          </div>
+        </div>
+        <p class="note">Platzhalter für echte Portraitfotos. Professionelle Bilder können später einfach eingebunden werden.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="container">
-<h2>Über Beate Schmahl</h2>
-<p>Langjährige Erfahrung, kontinuierliche Fortbildung und persönlicher Service. Ich unterstütze Zahnarztpraxen bei der professionellen Abrechnung und entlaste Teams bei Personalengpässen, Urlaubsvertretungen oder dauerhaftem Unterstützungsbedarf.</p>
-</section>
+  <section>
+    <div class="wrap wide">
+      <p class="quote">„Viele Praxen brauchen keine anonyme Großlösung, sondern erfahrene Ansprechpartnerinnen, die Abrechnung wirklich verstehen.“</p>
+      <div class="facts">
+        <div class="fact"><strong>2</strong> feste Ansprechpartnerinnen</div>
+        <div class="fact"><strong>1</strong> klarer Fokus: Zahnarztpraxen</div>
+        <div class="fact"><strong>NRW</strong> Standort Krefeld</div>
+        <div class="fact"><strong>digital</strong> Zusammenarbeit auch remote</div>
+      </div>
+    </div>
+  </section>
 
-<section class="container alt">
-<h2>Leistungen</h2>
-<div class="grid">
-<div class="card"><h3>BEMA-Abrechnung</h3><p>Präzise und vollständige gesetzliche Abrechnung.</p></div>
-<div class="card"><h3>GOZ-Abrechnung</h3><p>Optimierung privater Leistungen und Honorare.</p></div>
-<div class="card"><h3>KFO-Abrechnung</h3><p>Unterstützung bei kieferorthopädischen Leistungen.</p></div>
-<div class="card"><h3>Vertretung</h3><p>Unterstützung bei Urlaub, Krankheit oder Engpässen.</p></div>
-</div>
-</section>
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Leistungen für Ihre Zahnarztpraxis</h2>
+        <p>Flexible Unterstützung – von kurzfristiger Vertretung bis zur langfristigen externen Abrechnung.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="icon">01</div><h3>BEMA-Abrechnung</h3><p>Unterstützung bei gesetzlicher Abrechnung, Dokumentationsprüfung, Plausibilität und laufender Abrechnung.</p></div>
+        <div class="card"><div class="icon">02</div><h3>GOZ-Abrechnung</h3><p>Private Leistungen sauber abrechnen, Begründungen prüfen und Honorarpotenziale besser nutzen.</p></div>
+        <div class="card"><div class="icon">03</div><h3>KFO-Abrechnung</h3><p>Unterstützung bei kieferorthopädischen Fällen, Behandlungsplänen und komplexeren Abrechnungsabläufen.</p></div>
+        <div class="card"><div class="icon">04</div><h3>Urlaubsvertretung</h3><p>Wenn Ihre Abrechnungskraft ausfällt, bleibt Ihre Praxis handlungsfähig.</p></div>
+        <div class="card"><div class="icon">05</div><h3>Krankheitsvertretung</h3><p>Kurzfristige Entlastung bei Ausfällen, Rückständen oder personellen Engpässen.</p></div>
+        <div class="card"><div class="icon">06</div><h3>Abrechnungsoptimierung</h3><p>Analyse bestehender Abläufe mit Blick auf Struktur, Vollständigkeit und wirtschaftliche Potenziale.</p></div>
+      </div>
+    </div>
+  </section>
 
-<section class="container">
-<h2>Ihre Vorteile</h2>
-<ul>
-<li>Mehr Zeit für Patienten</li>
-<li>Entlastung des Teams</li>
-<li>Aktuelles Fachwissen</li>
-<li>Persönliche Ansprechpartnerin</li>
-<li>Flexible Zusammenarbeit</li>
-<li>Abrechnungssicherheit</li>
-</ul>
-</section>
+  <section id="vorteile">
+    <div class="wrap split">
+      <div class="panel">
+        <h2>Warum externe Abrechnung?</h2>
+        <p>Fachkräftemangel, Ausfälle und steigende Anforderungen führen schnell zu Rückständen. VIDENTA entlastet Ihr Team und bringt Struktur in einen wirtschaftlich wichtigen Bereich Ihrer Praxis.</p>
+      </div>
+      <div class="list">
+        <div class="item"><div class="check">✓</div><div><h3>Entlastung Ihres Teams</h3><p>Ihre Mitarbeiterinnen gewinnen Zeit für Patienten, Organisation und Praxisabläufe.</p></div></div>
+        <div class="item"><div class="check">✓</div><div><h3>Mehr Abrechnungssicherheit</h3><p>Erfahrung und aktuelles Wissen helfen, Fehler und unnötige Rückfragen zu reduzieren.</p></div></div>
+        <div class="item"><div class="check">✓</div><div><h3>Flexibel statt langfristig gebunden</h3><p>Unterstützung projektbezogen, regelmäßig oder kurzfristig bei Personalengpässen.</p></div></div>
+        <div class="item"><div class="check">✓</div><div><h3>Persönliche Betreuung</h3><p>Keine wechselnden Hotlines, sondern feste Ansprechpartnerinnen mit Praxisbezug.</p></div></div>
+      </div>
+    </div>
+  </section>
 
-<section class="container alt" id="kontakt">
-<h2>Kontakt</h2>
-<p><strong>Beate Schmahl</strong><br>Krefeld</p>
-<p>Telefon: ____________<br>E-Mail: ____________</p>
-<a class="btn" href="mailto:info@example.de">Kontakt aufnehmen</a>
-</section>
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Für wen VIDENTA arbeitet</h2>
+        <p>Der Schwerpunkt liegt auf Zahnarztpraxen, die ihre Abrechnung professionell absichern oder das Team spürbar entlasten möchten.</p>
+      </div>
+      <div class="target">
+        <div class="pillbox">Zahnarztpraxen</div>
+        <div class="pillbox">Gemeinschaftspraxen</div>
+        <div class="pillbox">KFO-Praxen</div>
+        <div class="pillbox">MKG / Oralchirurgie</div>
+        <div class="pillbox">MVZ</div>
+        <div class="pillbox">Praxisgründer</div>
+        <div class="pillbox">Praxen mit Engpässen</div>
+        <div class="pillbox">Praxen in NRW & deutschlandweit</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Häufige Fragen</h2>
+        <p>Ein erster Überblick zur Zusammenarbeit mit VIDENTA.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>Arbeitet VIDENTA nur in Krefeld?</summary><p>Nein. Der Standort ist Krefeld, die Zusammenarbeit kann je nach Praxissoftware und Abstimmung auch digital und deutschlandweit erfolgen.</p></details>
+        <details><summary>Ist kurzfristige Unterstützung möglich?</summary><p>Ja. Besonders bei Krankheit, Urlaub, Elternzeit oder akuten Rückständen kann eine kurzfristige Unterstützung sinnvoll sein.</p></details>
+        <details><summary>Übernimmt VIDENTA auch einzelne Projekte?</summary><p>Ja. Neben dauerhafter Zusammenarbeit sind auch einzelne Prüfungen, Aufarbeitungen oder Vertretungen möglich.</p></details>
+        <details><summary>Welche Bereiche werden abgedeckt?</summary><p>Der Fokus liegt auf BEMA, GOZ, KFO, Abrechnungsoptimierung und praxisnaher Entlastung.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Lassen Sie uns über Ihre Praxis sprechen.</h2>
+          <p>Ein kurzes Erstgespräch zeigt meist schnell, ob und wie VIDENTA Ihre Zahnarztpraxis entlasten kann.</p>
+          <a class="btn secondary" href="mailto:info@videnta.de">Jetzt Kontakt aufnehmen</a>
+        </div>
+        <div class="contact-card">
+          <strong>VIDENTA</strong><br>
+          Externe Abrechnung für Zahnarztpraxen<br><br>
+          Beate Schmahl & Martina Mustermann<br>
+          Krefeld<br><br>
+          <a href="mailto:info@videnta.de">info@videnta.de</a>
+          <a href="tel:+490000000000">Telefonnummer ergänzen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-<p>© Beate Schmahl – Externe Abrechnung für Zahnarztpraxen</p>
+  <div class="wrap">
+    © VIDENTA · Externe Abrechnung für Zahnarztpraxen · Impressum und Datenschutz ergänzen
+  </div>
 </footer>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "VIDENTA",
+  "description": "Externe Abrechnung für Zahnarztpraxen mit Schwerpunkt BEMA, GOZ, KFO und Praxisentlastung.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Krefeld",
+    "addressCountry": "DE"
+  },
+  "email": "info@videnta.de",
+  "areaServed": "Deutschland",
+  "founder": [
+    {"@type": "Person", "name": "Beate Schmahl"},
+    {"@type": "Person", "name": "Martina Mustermann"}
+  ]
+}
+</script>
 </body>
 </html>
