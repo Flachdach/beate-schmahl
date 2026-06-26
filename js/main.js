@@ -1,0 +1,3 @@
+const button=document.querySelector('[data-menu-button]');const menu=document.querySelector('[data-menu]');
+if(button&&menu){button.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')))}
+const items=document.querySelectorAll('.reveal');const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});items.forEach(i=>obs.observe(i));
